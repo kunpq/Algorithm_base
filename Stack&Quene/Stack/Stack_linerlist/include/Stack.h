@@ -1,4 +1,5 @@
 #ifndef _STACK_H_
+#define _STACK_H_
 #include <cstdlib>
 #include <iostream>
 using namespace std;

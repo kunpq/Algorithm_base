@@ -1,5 +1,6 @@
 #include <type_traits>
-#ifndef _Stack_H_
+#ifndef _STACK_H_
+#define _STACK_H_
 #include <iostream>
 using namespace std;
 struct Node {
