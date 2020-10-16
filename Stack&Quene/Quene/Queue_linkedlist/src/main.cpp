@@ -1,48 +1,28 @@
-/* use_q.c -- driver testing the Queue interface */
-/* compile with queue.c                          */
-#include <stdio.h>
-#include "../include/queue.h"  /* defines Queue, Item       */
-
-int main(void)
-{
-    Queue line;
-    Item temp;
-    char ch;
-    
-    InitializeQueue(&line);
-    puts("Testing the Queue interface. Type a to add a value,");
-    puts("type d to delete a value, and type q to quit.");
-    while ((ch = getchar()) != 'q')
-    {
-        if (ch != 'a' && ch != 'd')   /* ignore other input */
-            continue;
-        if ( ch == 'a')
-        {
-            printf("Integer to add: ");
-            scanf("%d", &temp);
-            if (!QueueIsFull(&line))
-            {
-                printf("Putting %d into queue\n", temp);
-                EnQueue(temp,&line);
-            }
-            else
-                puts("Queue is full!");
-        }
-        else
-        {
-            if (QueueIsEmpty(&line))
-                puts("Nothing to delete!");
-            else
-            {
-                DeQueue(&temp,&line);
-                printf("Removing %d from queue\n", temp);
-            }
-        }
-        printf("%d items in queue\n", QueueItemCount(&line));
-        puts("Type a to add, d to delete, q to quit:");
+/*测试文件*/
+#include "../include/queue.h"
+int main(void) {
+  Queue *line; //定义队列
+  Item temp;
+  int max = 100;
+  char ch;
+  InitializeQueue(max, line);
+  puts("Testing the Queue interface. Type a to add a value,");
+  puts("type d to delete a value, and type q to quit.");
+  while ((ch = getchar()) != 'q') {
+    if (ch != 'a' && ch != 'd') //忽略其他输出
+      continue;
+    if (ch == 'a') {
+      GetInfo(&temp);
+      EnQueue(temp, line);
+    } else {
+      DeQueue(&temp, line);
     }
-    EmptyTheQueue(&line);
-    puts("Bye!");
-    
-    return 0;
+  }
+  printf("\n%d items in queue\n", line->items);
+  puts("Type a to add, d to delete, q to quit:");
+
+DisposeQueue(line);
+puts("Bye!");
+
+return 0;
 }
