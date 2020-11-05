@@ -3,7 +3,8 @@
 #define _STACK_H_
 #include <iostream>
 using namespace std;
-struct Node {
+struct Node
+{
   int data;
   struct Node *next;
 };
