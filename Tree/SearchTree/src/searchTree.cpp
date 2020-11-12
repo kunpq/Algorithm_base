@@ -1,10 +1,10 @@
 #include "../include/searchTree.h"
 
-static ptrNode MakeNode(int& data)
+static ptrNode MakeNode(int &data)
 {
-    ptrNode newNode=new treeNode;
-    newNode->left=newNode->right=nullptr;
-    newNode->data=data;
+    ptrNode newNode = new treeNode;
+    newNode->left = newNode->right = nullptr;
+    newNode->data = data;
     return newNode;
 }
 
@@ -72,10 +72,10 @@ searchTree Insert(int x, searchTree T)
 {
     if (T == nullptr)
     {
-        ptrNode newNode=MakeNode(x);
+        ptrNode newNode = MakeNode(x);
         return newNode;
     }
-    else if (x<) {
-    
+    else if (x <)
+    {
     }
 }
