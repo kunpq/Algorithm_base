@@ -1,10 +1,5 @@
 #include "../include/BinaryHeap.h"
 #define MIN -1
-struct Heap {
-  int capacity;
-  int size;
-  int* arr;
-};
 
 PriorityQueue Initialize(int maxmium) {
   PriorityQueue Queue = new Heap;
@@ -48,7 +43,7 @@ int DeleteMin(PriorityQueue H) {
     if (child != H->size && H->arr[child] > H->arr[child + 1]) {
       child++;
     }
-    if (last>=H->arr[child]) {
+    if (last>H->arr[child]) {
       H->arr[i]=H->arr[child];
     }else {
       break;

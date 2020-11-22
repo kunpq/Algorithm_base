@@ -4,6 +4,14 @@
 using namespace std;
 struct Heap;
 typedef struct Heap *PriorityQueue;
+
+struct Heap {
+  int capacity;
+  int size;
+  int* arr;
+};
+
+
 PriorityQueue Initialize(int maxmium);
 void Destroy(PriorityQueue H);
 void MakeEmpty(PriorityQueue H);

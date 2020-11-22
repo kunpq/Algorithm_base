@@ -1,6 +1,12 @@
-#include <iostream>
+#include "../include/BinaryHeap.h"
 
-int main(int argc, char *argv[])
-{
-	std::cout << "Hello world!" << std::endl;
+
+int main(void) {
+  PriorityQueue q = Initialize(200);
+  for (int i=0; i<200; i++) {
+  Insert(i, q);
+  }
+  DeleteMin(q);
+  cout<<q->size<<endl;
+  return 0;
 }
