@@ -1,7 +1,7 @@
 {
     "files.defaultLanguage": "c", // ctrl+N新建文件后默认的语言
     "editor.formatOnType": true,  // 输入分号(C/C++的语句结束标识)后自动格式化当前这一行的代码
-    "editor.suggest.snippetsPreventQuickSuggestions": true, // clangd的snippets有很多的跳转点，不用这个就必须手动触发Intellisense了
+    "editor.suggest.snippetsPreventQuickSuggestions": false, // clangd的snippets有很多的跳转点，不用这个就必须手动触发Intellisense了
     "editor.acceptSuggestionOnEnter": "on",
     "C_Cpp.clang_format_sortIncludes": true,
     "terminal.integrated.enableBell": true,
