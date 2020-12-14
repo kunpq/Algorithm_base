@@ -1,0 +1,24 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "Compile",
+            "command": "clang++",
+            "args": [
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}.exe",
+                "-Wall", // 开启额外警告
+                "-g",
+                "-O2",
+                "--target=x86_64-w64-mingw",
+                "-static-libgcc", // 静态链接libgcc，一般都会加上
+                "-std=c++17",
+            ],
+            "options": {
+                "cwd": "C:\\mingw64\\bin"
+            }
+        }
+    ],
+}
