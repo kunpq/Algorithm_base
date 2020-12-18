@@ -42,7 +42,7 @@ void HeapSort(int arr[], int n) {
     }
   }
   //   进行排序,每次将当前最大的项放在数组末端
-  for (int i = n; i > 0; i--) {
+  for (int i = n - 1; i > 0; i--) {
     Swap(arr[0], arr[i]);
     PercDown(arr, 0, i);
   }

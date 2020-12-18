@@ -4,6 +4,7 @@ divide-conquer,"分而治之"思想
 */
 
 #include <iostream>
+
 using namespace std;
 // 定义存储数据的结构
 typedef struct item {

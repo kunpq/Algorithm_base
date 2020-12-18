@@ -95,8 +95,8 @@ void Display_edge(Graph &map) {
   for (int i = 0; i < map.vertex_num; i++) {
     cur = map.adjList[i].firstArc;
     while (cur != nullptr) {
-      cout << "There is an edge between " <<map.adjList[i].data.num << " and " << cur->vertex
-           << endl;
+      cout << "There is an edge between " << map.adjList[i].data.num << " and "
+           << cur->vertex << endl;
       cur = cur->next;
     }
   }
