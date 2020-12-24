@@ -7,14 +7,14 @@
             "command": "clang++",
             "args": [
                 "${file}",
-                // "${fileDirname}/lib/Class_adjList_map.cpp",
+                "${fileDirname}/lib/Map.dll",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}.exe",
                 "-Wall", // 开启额外警告
                 "-g",
                 "-O2",
-                //"-L./Map/lib",
-                //"-lClass_adjList_map",
+                // "-L./lib",
+                // "-lClass_adjList_map",
                 "--target=x86_64-w64-mingw",
                 "-static-libgcc", // 静态链接libgcc，一般都会加上
                 "-std=c++17",

@@ -15,9 +15,9 @@ void Adjlist_map::Read() {
   in.open("D:/Algorithm_base/Map/Data/TopSort_data.txt", ios::in);
   //   编号
   string number;
-  //   起点，终点
-  int v1, v2;
-
+  //   起点和待存储的边
+  int start;
+  ArcNode arc;
   Vertex v;
   if (in.fail()) {
     cout << "Fail to open the file" << endl;
@@ -32,13 +32,14 @@ void Adjlist_map::Read() {
         map.adjList[map.vertex_num++].data = v;
       }
       while (!in.eof()) {
-        in >> v1;
+        in >> start;
         if (!in.eof()) {
-          in >> v2;
+          in >> arc.vertex;
         } else {
           break;
         }
-        AddNode(map.adjList[v1 - 1], v2);
+        in >> arc.weight;
+        AddNode(map.adjList[start - 1], arc);
         map.arc_num++;
       }
     } else {
@@ -54,7 +55,7 @@ void Adjlist_map::Display_edge() {
     cur = map.adjList[i].firstArc;
     while (cur != nullptr) {
       cout << "There is an edge between " << map.adjList[i].data.num << " and "
-           << cur->vertex << endl;
+           << cur->vertex << ", the weight is " << cur->weight << endl;
       cur = cur->next;
     }
   }
@@ -62,9 +63,10 @@ void Adjlist_map::Display_edge() {
        << " edges" << endl;
 }
 
-void Adjlist_map::AddNode(VNode &vNode, int vertex) {
+void Adjlist_map::AddNode(VNode &vNode, ArcNode &arc) {
   Edge newArc = new ArcNode;
-  newArc->vertex = vertex;
+  newArc->vertex = arc.vertex;
+  newArc->weight = arc.weight;
   newArc->next = nullptr;
 
   if (vNode.firstArc == nullptr) {

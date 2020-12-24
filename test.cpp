@@ -22,11 +22,11 @@ void readd() {
     file >> s;
     if (file.fail()) {
       cout << "Mismatch" << endl;
-    //   file.clear();
+      //   file.clear();
       file >> s;
       //   file.clear()
       if (!file.eof()) {
-          cout << s << endl;
+        cout << s << endl;
       }
     } else {
       cout << s << " ";
