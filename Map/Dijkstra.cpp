@@ -1,4 +1,4 @@
-#include "./lib/Dijkstra.h"
+#include "./lib/EntryTable.h"
 #include <iostream>
 using namespace std;
 int main(void) {

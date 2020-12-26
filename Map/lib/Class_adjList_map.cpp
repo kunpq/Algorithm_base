@@ -39,7 +39,7 @@ void Adjlist_map::Read() {
           break;
         }
         in >> arc.weight;
-        AddNode(map.adjList[start - 1], arc);
+        AddNode(map.adjList[start], arc);
         map.arc_num++;
       }
     } else {
@@ -95,7 +95,4 @@ Adjlist_map::Adjlist_map() {
   Read();
 }
 
-Adjlist_map::~Adjlist_map() {
-  DisPose();
-  cout << "Done" << endl;
-}
+Adjlist_map::~Adjlist_map() { DisPose(); }

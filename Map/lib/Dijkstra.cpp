@@ -1,10 +1,6 @@
-#include "Dijkstra.h"
+#include "EntryTable.h"
 #include <iostream>
 using namespace std;
-// 初始化表的子函数，将图的邻接表链接到表中
-static void ReadGraph(Table &T, Graph &map);
-// 得到表中dist最小的未知顶点
-static vertex SmallestDist_Vertex(Table &T);
 
 // 初始化表，将表中每个顶点的dist,path与known均置默认值
 void InitTable(vertex start, Graph &map, Table &T) {
@@ -16,12 +12,12 @@ void InitTable(vertex start, Graph &map, Table &T) {
     T.allTable[i]->dist = Infinity;
     T.allTable[i]->path = NullVertex;
   }
-  T.allTable[start - 1]->dist = 0;
+  T.allTable[start]->dist = 0;
 }
 // 递归输出到某点的最短路径
 void PrintPath(vertex v, Table &T) {
-  if (T.allTable[v - 1]->path != NullVertex) {
-    PrintPath(T.allTable[v - 1]->path + 1, T);
+  if (T.allTable[v]->path != NullVertex) {
+    PrintPath(T.allTable[v]->path, T);
     cout << " to ";
   }
   cout << v;
@@ -40,7 +36,7 @@ void Dijkstra(Table &T) {
     // 将所有与v点邻近的点的path和dist更新
     Edge cur = T.allTable[v]->head.firstArc;
     while (cur != nullptr) {
-      w = cur->vertex - 1;
+      w = cur->vertex;
       if (!T.allTable[w]->known) {
         if (T.allTable[w]->dist == Infinity ||
             T.allTable[v]->dist + cur->weight < T.allTable[w]->dist) {
@@ -54,8 +50,10 @@ void Dijkstra(Table &T) {
     }
   }
 }
+// 得到对应点到起点的最短路径长度
+int GetCost(vertex v, Table &T) { return T.allTable[v]->dist; }
 
-static void ReadGraph(Table &T, Graph &map) {
+void ReadGraph(Table &T, Graph &map) {
   unitTable pT;
   for (int i = 0; i < map.vertex_num; i++) {
     pT = new TableEntryUnit;
@@ -64,7 +62,7 @@ static void ReadGraph(Table &T, Graph &map) {
   }
 }
 
-static vertex SmallestDist_Vertex(Table &T) {
+vertex SmallestDist_Vertex(Table &T) {
   int min;
   bool check = false;
   vertex v = NullVertex;

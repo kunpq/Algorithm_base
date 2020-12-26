@@ -1,0 +1,1 @@
+clang++  D:\Algorithm_base\Map\lib\Prime.cpp   D:\Algorithm_base\Map\lib\Class_adjList_map.cpp D:\Algorithm_base\Map\lib\Dijkstra.cpp -shared -o D:\Algorithm_base\Map\lib\Map.dll  --target=x86_64-w64-mingw -g
