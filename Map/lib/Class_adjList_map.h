@@ -40,4 +40,8 @@ public:
   //销毁申请的内存
   void DisPose();
 };
+
+void Get_Indegree(Graph &map, int arr[]);
+void TopSort(Graph &map, int top_arr[]);
+void DisplaySort(int top_arr[], int n);
 #endif

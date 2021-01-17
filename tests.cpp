@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 int main(void) {
-  int a = 90;
-  cout << a << endl;
+  cout << "唐赢坤" << endl;
+
   return 0;
 }

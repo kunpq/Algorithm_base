@@ -61,16 +61,23 @@ avlTree Insert(int x, avlTree T) {
     T->right = Insert(x, T->right);
     if (Height(T->right) - Height(T->left) == 2) {
       if (x > T->right->data) {
-        T = SingleRotateWithLeft(T);
+        T = SingleRotateWithRight(T);
       } else {
-        T = DoubleRotateWithLeft(T);
+        T = DoubleRotateWithRight(T);
       }
     }
   }
   T->height = Max(Height(T->left), Height(T->right)) + 1;
   return T;
 }
-avlTree MakeEMpty(avlTree T) {}
+void MakeEMpty(avlTree T) {
+  if (T == nullptr) {
+    return;
+  }
+  MakeEMpty(T->left);
+  MakeEMpty(T->right);
+  delete T;
+}
 position FindMin(avlTree T) {
   if (T == nullptr) {
     return nullptr;
@@ -89,4 +96,16 @@ position FindMax(avlTree T) {
     return FindMax(T->right);
 }
 
-avlTree Delete(int x, avlTree T) {}
+position Find(int x, avlTree T) {
+  if (T == nullptr) {
+    return nullptr;
+  }
+
+  if (x < T->data) {
+    return Find(x, T->left);
+  } else if (x > T->data) {
+    return Find(x, T->right);
+  } else {
+    return T;
+  }
+}

@@ -13,7 +13,7 @@ CXXFLAGS	:= -std=c++17 -Wall -Wextra -g
 #   if I wanted to include libraries not in /usr/lib I'd specify
 #   their path using -Lpath, something like:
 LFLAGS =
-
+SHELL=cmd.exe
 # define output directory
 OUTPUT	:= output
 
